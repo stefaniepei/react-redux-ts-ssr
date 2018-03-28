@@ -1,6 +1,5 @@
 import * as React from 'react'
 import axios from 'axios'
-import createBrowserHistory from 'history/createBrowserHistory'
 import _debug from 'debug'
 import { message, Modal } from 'antd'
 import { UNAUTHORIZED, TIMEOUT, NEW_API_SUCESS, API_SUCESS } from '../utils/constant'
@@ -8,8 +7,9 @@ import Configs from '../common/Configs'
 import ErrorMsg from '../utils/errorCode'
 import Utils from '../utils'
 
-const debug = _debug('promise:Axios')
-const history = createBrowserHistory()
+const debug = _debug('app:promise')
+// import createBrowserHistory from 'history/createBrowserHistory'
+// const history = createBrowserHistory()
 
 axios.defaults.timeout = TIMEOUT //tslint:disable-line
 
@@ -60,7 +60,7 @@ axios.interceptors.response.use((response) => {
       </div>,
       okText: '确定',
       onOk: () => {
-        history.replace('/login')
+        // history.replace('/login')
         location.reload()
       },
     }
@@ -80,7 +80,7 @@ axios.interceptors.response.use((response) => {
   message.error(msg)
   if (code === UNAUTHORIZED) {
     Utils.logOutClearStorage()
-    history.replace('/login')
+    // history.replace('/login')
     location.reload()
   }
 })

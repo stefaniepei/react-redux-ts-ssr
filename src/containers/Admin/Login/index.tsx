@@ -10,7 +10,7 @@ interface Props {
   history: any
 }
 
-class Login extends React.Component<Props, any> {
+class Login extends React.PureComponent<Props, any> {
   constructor(props) {
     super(props)
     debug('Login')

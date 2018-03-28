@@ -1,7 +1,7 @@
 import * as React from 'react'
 import Configs from '../../../../common/Configs'
 import _debug from 'debug'
-const debug = _debug('app:Common:Editor')
+const debug = _debug('app:component:Editor')
 
 import BraftEditor from 'braft-editor'
 import 'braft-editor/dist/braft.css'

@@ -29,5 +29,7 @@ export async function getOpenApiBySign(url, params) {
     params.sign = signData.data.sign || 1
     params.timestamp = signData.data.timestamp || 1
     return await axios.post(url, params, { headers: { 'Authorization': 'Bearer ' + userToken } })
+  } else {
+    // message.error('签名失败!')
   }
 }

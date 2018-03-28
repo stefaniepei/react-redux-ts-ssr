@@ -8,12 +8,13 @@ import * as autoprefixer from 'autoprefixer'
 import * as OptimizeCssAssetsPlugin from 'optimize-css-assets-webpack-plugin'
 import { CheckerPlugin } from 'awesome-typescript-loader'
 
-import configs from '../configs'
+import configs from '../../configs'
 
 const inRoot = path.resolve.bind(path, configs.pathBase)
 const inRootSrc = (file) => inRoot(configs.pathBase, file)
 
 const __DEV__ = configs.env === 'development'
+const __QA__ = configs.env === 'qa'
 const __PROD__ = configs.env === 'production'
 
 const config = {
@@ -46,6 +47,7 @@ const config = {
     new webpack.DefinePlugin(Object.assign({
       'process.env': { NODE_ENV: JSON.stringify(configs.env), PORT: JSON.stringify(configs.port) },
       __DEV__,
+      __QA__,
       __PROD__,
     })),
   ],
@@ -190,6 +192,19 @@ if (__DEV__) {
     new webpack.HotModuleReplacementPlugin(),
     new webpack.NamedModulesPlugin(),
   )
+  config.plugins.push(
+    new HtmlWebpackPlugin({
+      template: inRootSrc('src/index.html'),
+      favicon: inRootSrc('favicon.ico'),
+      hash: true,
+      inject: true,
+      manify: {
+        removeComments: true,
+        collapseWhitespace: false,
+      },
+      chunks: ['main', 'vendor', 'manifest'],
+    }),
+  )
 } else {
   config.plugins.push(
     new webpack.LoaderOptionsPlugin({
@@ -211,7 +226,6 @@ if (__DEV__) {
         drop_console: true,
         unused: true,
         dead_code: true,
-        screw_ie8: false,
         warnings: false,
       },
       sourceMap: false,

@@ -12,3 +12,4 @@ interface Window {
 }
 declare module 'braft-editor'
 declare module 'ramda'
+declare module 'universal-cookie'

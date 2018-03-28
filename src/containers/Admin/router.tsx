@@ -13,7 +13,11 @@ const AdminRouters = [
       loader: () => import('./Index'),
       loading,
     }),
+    hasHead: true,
     exact: true,
+    navOptions: {
+      label: 'Home Page',
+    },
   },
   {
     path: '/login',
@@ -21,7 +25,11 @@ const AdminRouters = [
       loader: () => import('./Login'),
       loading,
     }),
+    noHead: true,
     exact: true,
+    navOptions: {
+      label: 'Login Page',
+    },
   },
   {
     path: '/index',
@@ -33,7 +41,11 @@ const AdminRouters = [
         return <Component {...props} />
       },
     }),
+    hasHead: true,
     exact: true,
+    navOptions: {
+      label: 'Home Page',
+    },
   },
 ]
 

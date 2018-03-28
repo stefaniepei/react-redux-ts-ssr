@@ -1,12 +1,13 @@
-# react-redux-ts
+# react-redux-ts-ssr
 脚手架
 
-# react-redux-ts
-React V16 + ReactRouter V4 + Redux + TypeScript + HMR
+# react-redux-ts-ssr
+React V16 + ReactRouter V4 + Redux + TypeScript + HMR + SSR
 
 # 特性
 
 - [x] React V16 + ReactRouter V4 + Redux + TypeScript2.7.2 + HMR + Webpack4
+- [x] 服务端渲染
 - [x] sass模块化
 - [x] 支持热更新
 - [x] 支持tslint语法检查,提交检查

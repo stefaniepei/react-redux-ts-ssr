@@ -1,4 +1,4 @@
-import configs from '../configs'
+import configs from '../../configs'
 import app from './app'
 
 app.listen(configs.port, () => {

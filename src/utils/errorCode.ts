@@ -310,11 +310,12 @@ const ErrorCode = {
 
 const ErrorMsg = (res) => {
   if (res && res.code && res.message) {
-    if (ErrorCode.hasOwnProperty(String(res.code))) {
-      if (ErrorCode[res.code].hasOwnProperty('zh_CN')) {
-        return ErrorCode[res.code]['zh_CN']
-      } else if (ErrorCode[res.code].hasOwnProperty('en_US')) {
-        return ErrorCode[res.code]['en_US']
+    const code = String(res.code)
+    if (ErrorCode.hasOwnProperty(code)) {
+      if (ErrorCode[code].hasOwnProperty('zh_CN')) {
+        return ErrorCode[code]['zh_CN']
+      } else if (ErrorCode[code].hasOwnProperty('en_US')) {
+        return ErrorCode[code]['en_US']
       } else {
         return res.message
       }

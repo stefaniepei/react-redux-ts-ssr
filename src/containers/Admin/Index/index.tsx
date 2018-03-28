@@ -1,6 +1,7 @@
 import * as React from 'react'
 import { bindActionCreators } from 'redux'
-import connect from 'react-redux/es/connect/connect'
+// import connect from 'react-redux/es/connect/connect'
+import { connect } from 'react-redux'
 
 import _debug from 'debug'
 const debug = _debug('app:page:Index')
@@ -13,10 +14,10 @@ interface Props {
 
 import { add, sub } from '../../../store/Common/actions'
 
-@connect(
-  state => ({ commonStore: state.commonStore }),
+@(connect(
+  state => ({ commonStore: (state as any).commonStore }),
   dispatch => ({ actions: bindActionCreators({ add, sub }, dispatch) }),
-)
+) as any)
 export default class Index extends React.PureComponent<Props, any> {
   constructor(props) {
     super(props)
@@ -30,7 +31,7 @@ export default class Index extends React.PureComponent<Props, any> {
   render() {
 
     return (
-      <div className='admin-login'>
+      <div className='admin-login' style={{ marginTop: '50px' }}>
         <p><button style={{ width: '210px', height: '25px', margin: '5px' }}>{this.props.commonStore.count}</button></p>
         <button onClick={this.props.actions.add} style={{ width: '100px', height: '25px', margin: '5px' }}>加</button>
         <button onClick={this.props.actions.sub} style={{ width: '100px', height: '25px', margin: '5px' }}>减</button>

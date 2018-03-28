@@ -2,11 +2,12 @@
 import * as path from 'path'
 import * as webpack from 'webpack'
 import * as fs from 'fs-extra'
-import clientConfig from './webpack.client'
-import configs from '../configs'
+import serverConfig from './webpack.server'
+import clientConfig from '../client/webpack.client'
+import configs from '../../configs'
 
 import * as _debug from 'debug'
-const debug = _debug('app:compile')
+const debug = _debug('app:server:compile')
 
 const inRoot = path.resolve.bind(path, configs.pathBase)
 
@@ -44,10 +45,18 @@ const webpackCompiler = (config: any, statsFormat?: any) => {
       debug('Client Config set to fail on warning, exiting with status code "1".')
       process.exit(1)
     }
+    debug('Copy client static assets to dist folder.')
+
+    const serverStats: any = await webpackCompiler(serverConfig)
+    if (serverStats.warnings.length) {
+      debug('Server Config set to fail on warning, exiting with status code "1".')
+      process.exit(1)
+    }
     debug('Server Copy static assets to dist folder.')
     fs.copySync(
       configs.assetsDir, configs.outDir
     )
+    debug('Compiler Success !!!')
   } catch (e) {
     debug('Compiler encountered an error.', e)
     process.exit(1)
