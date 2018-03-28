@@ -40,9 +40,10 @@ app.use(convert(KoaStatic('dist')))
 
 app.use(async(ctx, next) => {
   const { originalUrl } = ctx
+  console.log(originalUrl)
   try {
     const context: any = {}
-    const initialState = JSON.stringify(store)
+    const initialState = JSON.stringify(store.getState())
     // console.log(initialState)
     const initialView = renderToString(
       <StaticRouter location={originalUrl} context={context} >

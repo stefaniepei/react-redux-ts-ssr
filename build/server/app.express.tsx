@@ -23,7 +23,7 @@ app.use('/favicon.ico', express.static(__dirname + '../../favicon.ico'))
 
 app.get('*', (req: any, res) => {
   const context: any = {}
-  const initialState = JSON.stringify(store)
+  const initialState = JSON.stringify(store.getState())
 
   // console.log(initialState)
 

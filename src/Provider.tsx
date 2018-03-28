@@ -7,7 +7,6 @@ import createMemoryHistory from 'history/createMemoryHistory'
 import App from './containers/App'
 import configureStore from './store/createStore'
 
-// import './utils/flexible'
 // const FastClick = require('fastclick')
 // FastClick.attach(document.body)
 

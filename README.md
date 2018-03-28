@@ -64,7 +64,7 @@ $ npm run prod
 ````
 ### 项目基本信息
 #### Github地址：
-https://github.com/stefaniepei/react-redux-ts.git
+https://github.com/stefaniepei/react-redux-ts-ssr.git
 #### 分支：
 origin/master
 #### 测服地址：
@@ -125,7 +125,7 @@ http {
       listen       443;
 
       server_name  localhost;
-      root /data2/www/react-redux-ts/dist;
+      root /data2/www/react-redux-ts-ssr/dist;
       access_log off;
       #access_log /data1/app/services/nginx/logs/access.log ip_log;
       error_log  /data1/app/services/nginx/logs/error.log warn;
@@ -138,7 +138,7 @@ http {
         proxy_set_header Host $host;
         proxy_set_header X-Real-IP       $remote_addr;
         proxy_set_header X-Forwarded-For  $proxy_add_x_forwarded_for;
-        root /data2/www/react-redux-ts/dist;
+        root /data2/www/react-redux-ts-ssr/dist;
       }
 
       location ~ .*\.(jpg|jpeg|png|gif|bmp|js|css|swf|ico)$ {
@@ -146,13 +146,13 @@ http {
         access_log off;
       }
       location /favicon.ico {
-        root /data2/www/react-redux-ts/dist;
+        root /data2/www/react-redux-ts-ssr/dist;
         log_not_found off;
         access_log off;
       }
       location ~* {
         rewrite .* /index.html break;
-        root /data2/www/react-redux-ts/dist;
+        root /data2/www/react-redux-ts-ssr/dist;
       }
   }
   include /data1/app/services/nginx/conf/vhost/*.conf;

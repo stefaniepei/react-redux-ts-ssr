@@ -1,7 +1,6 @@
 import * as React from 'react'
 
 // 公用部分css
-// import 'antd/dist/antd.min.css'
 import '../assets/styles/core.scss'
 // home组件里面的一些路由
 import IndexRouters from '../containers/Admin/router'

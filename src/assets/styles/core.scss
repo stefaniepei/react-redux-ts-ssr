@@ -1,3 +1,4 @@
+@import '~antd/dist/antd.css';
 @import "_font";
 :global {
     $skinColor: #108EE9;
@@ -70,7 +71,7 @@
         color: #20a819;
     }
     .disabled {
-      color: #ddd
+        color: #ddd
     }
     .all_warp {
         word-break: break-all;

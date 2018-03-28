@@ -160,18 +160,6 @@ config.plugins.push(
   new ForkTsCheckerWebpackPlugin({
     checkSyntacticErrors: true,
   }),
-  new HtmlWebpackPlugin({
-    template: inRootSrc('src/index.html'),
-    favicon: inRootSrc('favicon.ico'),
-    hash: true,
-    inject: true,
-    manify: {
-      removeComments: true,
-      collapseWhitespace: false,
-    },
-    chunks: ['main', 'vendor', 'manifest'],
-    filename: 'index.html',
-  }),
   new webpack.optimize.CommonsChunkPlugin({
     names: ['vendor', 'manifest'],
   }),
