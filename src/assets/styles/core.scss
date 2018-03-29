@@ -1,28 +1,12 @@
-@import '~antd/dist/antd.css';
-@import "_font";
+@import '~normalize.css';
+@import '~hotcss/src/px2rem.scss';
+// @import '~antd/dist/antd.css';
+// @import "_font";
 :global {
     $skinColor: #108EE9;
-    em {
-        font-style: normal;
-    }
-    a:hover,
-    a:focus {
-        text-decoration: none;
-    }
-     :focus {
-        outline: none !important;
-    }
-    .cf {
-        zoom: 1;
-        clear: both;
-    }
-    .cf:after {
-        visibility: hidden;
-        display: block;
-        font-size: 0;
-        content: " ";
-        clear: both;
-        height: 0;
+    $designWidth: 750;
+    @function px2rem( $px) {
+        @return $px*320/$designWidth/20+rem;
     }
     .hide {
         display: none;
@@ -53,15 +37,7 @@
     .content-box * {
         box-sizing: inherit;
     }
-    body {
-        // font-size: 14px;
-        // min-width: 1246px;
-        min-height: 100%;
-        #wrapper {
-            height: 100%;
-        }
-    }
-    .ant-breadcrumb-link {
+    .hand {
         cursor: pointer;
     }
     .error {
@@ -84,22 +60,5 @@
     }
     .link-color {
         color: #108EE9;
-    }
-    .myedit-table {
-        td {
-            max-width: 300px;
-            min-width: 50px;
-            word-break: break-all !important;
-            word-wrap: break-word !important;
-        }
-    }
-    .disib {
-        display: inline-block;
-    }
-    .disf {
-        display: flex;
-        &.sa {
-            justify-content: space-around
-        }
     }
 }

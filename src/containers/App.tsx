@@ -1,7 +1,12 @@
 import * as React from 'react'
-
 // 公用部分css
-import '../assets/styles/core.scss'
+const __SSR__ = process.env.RENDER_TYPE === 'server'
+if (!__SSR__) {
+  require('../assets/styles/core.scss')
+  require('hotcss')
+  const FastClick = require('fastclick')
+  FastClick.attach(document.body)
+}
 // home组件里面的一些路由
 import IndexRouters from '../containers/Admin/router'
 
