@@ -1,6 +1,4 @@
 import * as React from 'react'
-import { NavLink } from 'react-router-dom'
-// import connect from 'react-redux/es/connect/connect'
 import { connect } from 'react-redux'
 
 import './Footer.scss'

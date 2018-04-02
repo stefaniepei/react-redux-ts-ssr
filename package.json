@@ -15,7 +15,9 @@
     "start:dist": "better-npm-run start:dist",
     "server": "better-npm-run server",
     "dev": "better-npm-run dev",
-    "qa": "better-npm-run qa"
+    "qa": "better-npm-run qa",
+    "lint:fix": "npm run lint -- --fix",
+    "lint": "./node_modules/.bin/tslint -c tslint.json -p tsconfig.json --fix --format stylish"
   },
   "betterScripts": {
     "start": {

@@ -64,7 +64,7 @@ import { setLanguage } from '../../store/Common/actions'
   state => ({ commonStore: (state as any).commonStore }),
   dispatch => ({ actions: bindActionCreators({ setLanguage }, dispatch) }),
 ) as any)
-export default class Header extends React.PureComponent<any, any> {
+export default class Header extends React.PureComponent<Props, any> {
 
   constructor(props) {
     super(props)
