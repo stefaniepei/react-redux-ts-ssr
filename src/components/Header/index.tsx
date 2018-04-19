@@ -7,7 +7,7 @@ import { NavLink } from 'react-router-dom'
 import './Header.scss'
 
 interface Props {
-  history: any,
+  // history: any,
   actions: any,
   commonStore: any,
 }
@@ -66,7 +66,7 @@ import { setLanguage } from '../../store/Common/actions'
 ) as any)
 export default class Header extends React.PureComponent<Props, any> {
 
-  constructor(props) {
+  constructor(props: Props) {
     super(props)
   }
 

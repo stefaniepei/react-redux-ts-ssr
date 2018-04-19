@@ -1,17 +1,18 @@
 # react-redux-ts-ssr
 脚手架
 
-# react-redux-ts-ssr
-React V16 + ReactRouter V4 + Redux + TypeScript + HMR + SSR
+## Github地址：
+https://github.com/stefaniepei/react-redux-ts-ssr.git
 
 # 特性
 
-- [x] React V16 + ReactRouter V4 + Redux + TypeScript2.7.2 + HMR + Webpack4
+- [x] React V16 + ReactRouter V4 + Redux + TypeScript V2 + HMR + Webpack V3
 - [x] 服务端渲染
 - [x] sass模块化
 - [x] 支持热更新
 - [x] 支持tslint语法检查,提交检查
 
+no-ssr版本：https://github.com/stefaniepei/react-redux-ts
 
 # 快速开始
 
@@ -62,20 +63,9 @@ $ npm run prod
 /* eslint-disable no-alert, no-console */
 // eslint-disable-line
 ````
-### 项目基本信息
-#### Github地址：
-https://github.com/stefaniepei/react-redux-ts-ssr.git
-#### 分支：
-origin/master
-#### 测服地址：
 
 
-#### 前端部署
-##### 1.npm run deploy
-##### 2.本地代码提交到git远程仓库
-##### 3.服务端git pull最新的代码
-
-##### ps:/data1/app/services/nginx/conf/nginx.conf 参考配置
+### ps:/data1/app/services/nginx/conf/nginx.conf 参考配置(暂客户端渲染用)
 ````bash
 http {
   include       mime.types;

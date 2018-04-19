@@ -33,10 +33,15 @@ const AdminRouters = [
   },
   {
     path: '/index',
-    component: Loadable({
+    component: Loadable({//Loadable.Map
       loader: () => import('./Index'),
+      // loader: { 
+      //   index: () => import('./Index'),
+      //   login: () => import('./Login'),
+      // },
       loading,
       render(loaded, props) {
+        // let Component = loaded.index.default
         let Component = loaded.default
         return <Component {...props} />
       },
