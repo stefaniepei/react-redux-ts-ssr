@@ -60,10 +60,10 @@ config.module.rules.push({
   query: {
     cacheDirectory: true,
     plugins: ['transform-runtime',
-      ['import', {
-        libraryName: 'antd',
-        style: 'css',
-      }],
+      // ['import', {
+      //   libraryName: 'antd',
+      //   style: 'css',
+      // }],
     ],
     presets: ['env', 'react'],
   },

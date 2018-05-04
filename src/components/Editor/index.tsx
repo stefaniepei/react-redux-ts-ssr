@@ -1,5 +1,5 @@
 import * as React from 'react'
-import Configs from '../../../../common/Configs'
+import Configs from '../../common/Configs'
 import _debug from 'debug'
 const debug = _debug('app:component:Editor')
 

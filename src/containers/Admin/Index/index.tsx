@@ -37,9 +37,9 @@ export default class Index extends React.PureComponent<Props, any> {
           <meta name='keywords' content='首页的关键字' />
           <meta name='description' content='首页的描述' />
         </Helmet>
-        <p><button style={{ width: '210px', height: '25px', margin: '5px' }}>{this.props.commonStore.count}</button></p>
-        <button onClick={this.props.actions.add} style={{ width: '100px', height: '25px', margin: '5px' }}>加</button>
-        <button onClick={this.props.actions.sub} style={{ width: '100px', height: '25px', margin: '5px' }}>减</button>
+        <p><button style={{ width: '210px', height: '65px', margin: '5px' }}>{this.props.commonStore.count}</button></p>
+        <button onClick={this.props.actions.add} style={{ width: '100px', height: '65px', margin: '5px' }}>加</button>
+        <button onClick={this.props.actions.sub} style={{ width: '100px', height: '65px', margin: '5px' }}>减</button>
       </div>
     )
   }

@@ -1,12 +1,29 @@
 @import '~normalize.css';
 @import '~hotcss/src/px2rem.scss';
-// @import '~antd/dist/antd.css';
-// @import "_font";
+// @import '~antd/dist/antd.css'; // webpack.client.ts plugin
+// @import 'px2rem';
+@import "_font";
 :global {
     $skinColor: #108EE9;
-    $designWidth: 750;
-    @function px2rem( $px) {
-        @return $px*320/$designWidth/20+rem;
+    * {
+        margin: 0;
+        padding: 0;
+    }
+    a {
+        text-decoration: none;
+    }
+    li {
+        list-style: none;
+    }
+    .clear:after {
+        display: block;
+        clear: both;
+        content: "";
+        visibility: hidden;
+        height: 0
+    }
+    .clear {
+        zoom: 1
     }
     .hide {
         display: none;
@@ -41,7 +58,7 @@
         cursor: pointer;
     }
     .error {
-        color: #f04134!important;
+        color: #f04134 !important;
     }
     .sucess {
         color: #20a819;

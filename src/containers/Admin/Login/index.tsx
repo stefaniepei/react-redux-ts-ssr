@@ -1,15 +1,9 @@
 import * as React from 'react'
 import { Helmet } from 'react-helmet'
 
-import { create } from 'rxjs-spy'
-// import { tag } from 'rxjs-spy/operator/tag'
-import { Observable } from 'rxjs/Observable'
-import { of } from 'rxjs/observable/of'
-// import { empty } from 'rxjs/observable/empty'
-import { from } from 'rxjs/observable/from'
-import { fromEvent } from 'rxjs/observable/fromEvent'
-import { timer } from 'rxjs/observable/timer'
+import { Observable, of, from, fromEvent, timer } from 'rxjs'
 import { map, tap, startWith, switchMap, mapTo, scan, takeWhile, delay, switchMapTo, concatAll, count, withLatestFrom, share } from 'rxjs/operators'
+import { create } from 'rxjs-spy'
 
 import _debug from 'debug'
 const debug = _debug('app:page:Login')
@@ -93,7 +87,7 @@ class Login extends React.PureComponent<Props, any> {
       }),
       tap(v => (currentNumber = v)),
       startWith(currentNumber),
-    ).tag('subscription').subscribe(this.updateHTML('display'))
+    ).subscribe(this.updateHTML('display'))
   }
 
   // 进度条

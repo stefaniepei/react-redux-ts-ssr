@@ -94,7 +94,7 @@ export default class Header extends React.PureComponent<Props, any> {
     const { locale } = me.props.commonStore
 
     return (
-      <div className={true ? 'index-header' : 'index-header nav-collapse'}>
+      <div className={false ? 'index-header' : 'index-header nav-collapse'}>
         <div className='logo'></div>
         <nav className='nav-wrap'>
           {
