@@ -1,6 +1,7 @@
 import * as React from 'react'
 import { Helmet } from 'react-helmet'
-
+import { bindActionCreators } from 'redux'
+import { connect } from 'react-redux'
 import { Observable, of, from, fromEvent, timer } from 'rxjs'
 import { map, tap, startWith, switchMap, mapTo, scan, takeWhile, delay, switchMapTo, concatAll, count, withLatestFrom, share } from 'rxjs/operators'
 import { create } from 'rxjs-spy'
@@ -11,9 +12,13 @@ const debug = _debug('app:page:Login')
 import './Login.scss'
 
 interface Props {
-  history: any
+  history: any,
+  commonStore: any,
 }
 
+@(connect(
+  state => ({ commonStore: (state as any).commonStore }),
+) as any)
 class Login extends React.PureComponent<Props, any> {
   constructor(props) {
     super(props)
@@ -114,7 +119,7 @@ class Login extends React.PureComponent<Props, any> {
   }
 
   render() {
-
+    debug(this.props.commonStore.userInfo)
     return (
       <div className='admin-login'>
         <Helmet>
@@ -129,6 +134,9 @@ class Login extends React.PureComponent<Props, any> {
         <div ref='progress'></div>
         <button ref='load'>Load Data</button>
         <div ref='data'></div>
+
+        {this.props.commonStore.count}
+        {this.props.commonStore.locale}
       </div>
     )
   }

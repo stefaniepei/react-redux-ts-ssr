@@ -9,7 +9,7 @@ import * as React from 'react'
 import { StaticRouter } from 'react-router-dom'
 import { renderToString } from 'react-dom/server'
 import { Helmet } from 'react-helmet'
-
+import * as Cookies from 'universal-cookie'
 import configs from '../../configs'
 
 const debug = _debug('app:server:koa')
@@ -43,8 +43,21 @@ app.use(async(ctx, next) => {
   console.log(originalUrl)
   try {
     const context: any = {}
-    const initialState = JSON.stringify(store.getState())
-    // console.log(initialState)
+    // let initialState = JSON.stringify(store.getState())
+    const cookies = new Cookies(ctx.header.cookie)
+    // debug(store.getState(), cookies.get('count'))
+    const newState = {
+      ...store.getState(),
+      ...{
+        commonStore: {
+          ...(store.getState() as any).commonStore,
+          count: cookies.get('count') || 0,
+          locale: cookies.get('locale') || 'zh_CN',
+          userInfo: cookies.get('userInfo') || '',
+        },
+      },
+    }
+    debug(newState)
     const initialView = renderToString(
       <StaticRouter location={originalUrl} context={context} >
         <AppProvider />
@@ -53,11 +66,12 @@ app.use(async(ctx, next) => {
     const helmet = Helmet.renderStatic()
     const initialTitle = helmet.title.toString()
     const initialMeta = helmet.meta.toString()
+    const initialState = JSON.stringify(newState)
     await ctx.render('index', { initialView, initialState, initialTitle, initialMeta })
   } catch (e) {
     ctx.body = e.message
   }
-  next && await next()
+  await next()
 })
 
 export default app
